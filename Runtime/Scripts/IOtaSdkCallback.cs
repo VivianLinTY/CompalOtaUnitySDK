@@ -10,8 +10,12 @@ namespace OtaSdk.Client
 
         abstract public void onRegisterSuccess(bool success);
 
-        abstract public void onNewVersion(bool hasNewVersion);
+        abstract public void onNewVersion(bool hasNewVersion, string version);
 
         abstract public void onDownloadProgress(int progress);
+
+        abstract public void onDownloadResult(bool success);
+
+        abstract public void onUpgradeStatus(bool success);
     }
 }
