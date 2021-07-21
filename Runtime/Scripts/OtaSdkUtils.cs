@@ -14,7 +14,7 @@ namespace OtaSdk.Client
                 Log.CreateInstance(true);
             }
 
-            Log.Instance.V(TAG, "registerSystemMessage");
+            Log.Instance.V(TAG, "registerOtaCallback");
             AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             AndroidJavaClass proxyClass = new AndroidJavaClass("com.compal.otasdk.OtaUnityProxy");
@@ -23,7 +23,7 @@ namespace OtaSdk.Client
 
         public static void unRegisterOtaCallback(IOtaSdkCallback callback)
         {
-            Log.Instance.V(TAG, "unRegisterSystemMessage");
+            Log.Instance.V(TAG, "unRegisterOtaCallback");
             AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             AndroidJavaClass proxyClass = new AndroidJavaClass("com.compal.otasdk.OtaUnityProxy");
@@ -33,8 +33,6 @@ namespace OtaSdk.Client
         public static bool newVersionCheck()
         {
             Log.Instance.V(TAG, "newVersionCheck");
-            AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-            AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             AndroidJavaClass proxyClass = new AndroidJavaClass("com.compal.otasdk.OtaUnityProxy");
             return proxyClass.CallStatic<bool>("newVersionCheck");
         }
@@ -42,8 +40,6 @@ namespace OtaSdk.Client
         public static bool startDownload()
         {
             Log.Instance.V(TAG, "startDownload");
-            AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-            AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             AndroidJavaClass proxyClass = new AndroidJavaClass("com.compal.otasdk.OtaUnityProxy");
             return proxyClass.CallStatic<bool>("startDownload");
         }
